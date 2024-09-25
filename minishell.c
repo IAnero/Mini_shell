@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
+/*   By: herrakot <herrakot@student.42antanana>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:39:06 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/25 09:59:06 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:04:05 by herrakot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,6 @@
 //     printf("pwd after chdir: %s\n", pwd);
 //     return (0);
 // }
+
+/*tay be zany ah*/
 
