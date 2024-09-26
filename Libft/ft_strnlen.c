@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/08 23:59:12 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/26 18:36:45 by hrasolof         ###   ########.fr       */
+/*   Created: 2024/09/26 18:29:11 by hrasolof          #+#    #+#             */
+/*   Updated: 2024/09/26 18:44:35 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+size_t ft_strnlen(const char *str, size_t maxlen)
 {
-	char	*dest_start;
+    size_t i;
 
-	dest_start = dest;
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (dest_start);
+    i = 0;
+    while (i < maxlen && str[i] != '\0')
+        i++;
+    return (i);
 }

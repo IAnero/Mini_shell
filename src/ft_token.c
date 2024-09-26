@@ -6,20 +6,17 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:14:53 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/26 17:56:26 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:49:12 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/minishell.h"
-
-#define TOKEN_BUFFER_SIZE 64
 
 int ft_isspace(char c)
 {
     return (c == ' ' || c == '\t');
 }
 
-// Function to check if a character is a special operator
 int is_special_char(char c)
 {
     return (c == '|' || c == '>' || c == '<');
@@ -57,10 +54,10 @@ char **tokenize_input(char *input)
                 tokens[position++] = ft_strdup(token);
                 token_pos = 0;
             }
-            tokens[position++] = strndup(&input[i], 1);
+            tokens[position++] = ft_strndup(&input[i], 1);
         }
         else
-            token[token_pos++] = input[i];
+            token[token_pos++] = input[i];  
         if (position >= bufsize)
         {
             bufsize += TOKEN_BUFFER_SIZE;

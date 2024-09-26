@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/08 23:59:12 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/26 18:36:45 by hrasolof         ###   ########.fr       */
+/*   Created: 2024/09/26 18:35:49 by hrasolof          #+#    #+#             */
+/*   Updated: 2024/09/26 18:44:52 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+char *ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char	*dest_start;
+    size_t i;
+    char	*dest_start;
 
 	dest_start = dest;
-	while (*src)
+    i = 0;
+	while (i < n && *src)
+    {
 		*dest++ = *src++;
+        i++;
+    }
 	*dest = '\0';
 	return (dest_start);
 }

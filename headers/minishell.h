@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:39:03 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/26 17:34:42 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:24:11 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include "../Libft/libft.h"
+
+#define NC "\e[0m"
+#define YELLOW "\e[33m"
+#define BYELLOW "\e[1;33m"
+#define RED "\e[31m"
+#define GREEN "\e[32m"
+#define BOLD "\033[1m"
+
+#define TOKEN_BUFFER_SIZE 64
 
 int ft_cd(char **av);
 int ft_echo(char **av);

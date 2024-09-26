@@ -6,46 +6,31 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:39:06 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/25 10:09:59 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:53:42 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "headers/minishell.h"
 
-/*#############THIS IS THE BEGINNIG WHERE WE WRITE PROMPT#######################*/
-// int main(void)
-// {
-//     while (1)
-//     {
-//         char *rl;
-//         rl = readline("Prompt > ");
-//         printf("%s\n", rl);
-//     }
-//     return (0); 
-// }
+int main(void)
+{
+    char    *input;
+    char    **args = NULL;
 
-
-// /*#############WORK AS PWD IN BASH#######################*/
-// int main(void)
-// {
-//     char *pwd;
-    
-//     pwd = getcwd(NULL, 0);
-//     printf("pwd: %s\n", pwd);
-//     return (0);
-// }
-
-/*#############CHANGE CURRENTLY WORKING DIRECTORY#######################*/
-// int main(void)
-// {
-//     char *pwd;
-    
-//     pwd = getcwd(NULL, 0);
-//     printf("pwd before chdir: %s\n", pwd);
-//     chdir("/home/hrasolof");
-//     pwd = getcwd(NULL, 0);
-//     printf("pwd after chdir: %s\n", pwd);
-//     return (0);
-// }
+    while (1)
+    {
+        input = readline("\033[1mMinishell \U0001F60A $\033[0m ");
+        if (!input)
+            break ;
+        if (*input)
+            add_history(input);
+        args = tokenize_input(input);
+        // if (built_in_command(args) == 0)
+        //     execute_commad(args);
+        built_in_command(args);
+        free(input);
+        free (args);
+    }
+}
 
 

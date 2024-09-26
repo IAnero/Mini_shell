@@ -6,7 +6,7 @@
 #    By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 09:55:22 by hrasolof          #+#    #+#              #
-#    Updated: 2024/09/14 12:09:12 by hrasolof         ###   ########.fr        #
+#    Updated: 2024/09/26 18:50:05 by hrasolof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,10 @@ SRCS =		ft_isalpha.c \
 		ft_strmapi.c \
 		ft_strcmp.c \
 		ft_strcat.c \
-		ft_strcpy.c
+		ft_strcpy.c \
+		ft_strnlen.c \
+		ft_strncpy.c \
+		ft_strndup.c
 
 OBJS = $(SRCS:.c=.o)
 

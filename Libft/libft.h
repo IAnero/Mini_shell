@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 08:28:09 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/14 12:10:36 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:51:16 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *str);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
+size_t				ft_strnlen(const char *str, size_t maxlen);
 // void				ft_lstadd_front(t_list_node **lst, t_list_node *news);
 void				ft_striteri(char *str, void (*function)(unsigned int,
 							char *));
@@ -43,6 +44,7 @@ void				ft_putnbr_fd(int n, int fd);
 char				*ft_strmapi(char const *str, char (*function)(unsigned int,
 							char));
 char				**ft_split(char const *str, char separator);
+char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strjoin(char *dest, char const *src);
 char				*ft_strnstr(const char *big, const char *little, size_t n);
@@ -53,6 +55,7 @@ char				*ft_strrchr(const char *str, int c);
 char				*ft_itoa(int n);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strcpy(char *dest, const char *src);
+char    			*ft_strndup(const char *str, size_t n);
 // int					ft_lstsize(t_list_node *lst);
 int					ft_memcmp(const void *str1, const void *str2, size_t n);
 int					ft_strncmp(const char *str1, const char *str2, size_t n);
