@@ -21,7 +21,7 @@ int ft_cd(char **av)
     }
     else
     {
-        if (chdir(av[1] != 0))
+        if (chdir(av[1]) != 0)
             perror("minishell");
     }
     return (0);

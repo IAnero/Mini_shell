@@ -6,18 +6,20 @@
 #    By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 10:26:08 by hrasolof          #+#    #+#              #
-#    Updated: 2024/09/26 10:27:21 by hrasolof         ###   ########.fr        #
+#    Updated: 2024/09/26 17:35:32 by hrasolof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-FLAGS_C = -Wall -Werror -Wextra -g --lreadline
+FLAGS_C = -Wall -Werror -Wextra -g -lreadline
 
 RM = rm -rf
 
 SRCS = 	first_draft.c \
-		src/simple_command.c
+		src/simple_command.c \
+		src/command_handling.c \
+		src/ft_token.c
 
 LIBFT_PATH = Libft
 

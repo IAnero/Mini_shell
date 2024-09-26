@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:00:30 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/26 10:48:15 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/26 17:57:27 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
     char    *input;
-    char    **args;
+    char    **args = NULL;
 
     while (1)
     {
@@ -24,9 +24,10 @@ int main(void)
             break ;
         if (*input)
             add_history(input);
-        *args = tokenize_input(input);
-        if (built_in_command(args) == 0)
-            execute_commad(args);
+        args = strtok(input, " >|<");
+        // if (built_in_command(args) == 0)
+        //     execute_commad(args);
+        built_in_command(args);
         free(input);
         free (args);
     }
