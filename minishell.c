@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herrakot <herrakot@student.42antanana>     +#+  +:+       +#+        */
+/*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:39:06 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/25 10:04:05 by herrakot         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:09:59 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,4 @@
 //     return (0);
 // }
 
-/*tay be zany ah*/
 

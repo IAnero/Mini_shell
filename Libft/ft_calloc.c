@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
+/*   By: hrasolof <hrasolof@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 09:39:03 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/25 09:40:43 by hrasolof         ###   ########.fr       */
+/*   Created: 2024/03/05 09:51:00 by hrasolof          #+#    #+#             */
+/*   Updated: 2024/03/07 08:50:01 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <readline/readline.h>
-#include <readline/history.h>
+void	*ft_calloc(size_t n_block, size_t size)
+{
+	char	*cal;
+	size_t	calc;
 
-#endif
+	calc = n_block * size;
+	cal = malloc(calc);
+	if (!cal)
+		return (0);
+	ft_bzero(cal, calc);
+	return (cal);
+}
