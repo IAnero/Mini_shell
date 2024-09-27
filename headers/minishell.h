@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:39:03 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/26 18:24:11 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:29:54 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int ft_cd(char **av);
 int ft_echo(char **av);
 int ft_pwd();
 int ft_exit();
-char **tokenize_input(char *input);
+// char **tokenize_input(char *input);
 int built_in_command(char **av);
+char	**ft_toksplit(const char *str);
 
 
 #endif

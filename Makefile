@@ -6,7 +6,7 @@
 #    By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 10:26:08 by hrasolof          #+#    #+#              #
-#    Updated: 2024/09/26 19:20:05 by hrasolof         ###   ########.fr        #
+#    Updated: 2024/09/27 09:53:41 by hrasolof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ clean:
 	@make clean -C $(LIBFT_PATH)
 
 fclean: clean
-	@echo
+	@echo "\033[0;33mCleaning...\033[0m"	
 	$(RM) $(NAME)
 	@make fclean -C $(LIBFT_PATH)
 

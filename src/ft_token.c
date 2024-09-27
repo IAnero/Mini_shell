@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:14:53 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/26 18:49:12 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:35:25 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,65 +17,66 @@ int ft_isspace(char c)
     return (c == ' ' || c == '\t');
 }
 
-int is_special_char(char c)
+int ft_special_char(char c)
 {
-    return (c == '|' || c == '>' || c == '<');
+    return (c == '>' || c == '<' || c == '|' || c == ' ' || c == '\t');
 }
 
-char **tokenize_input(char *input)
+static size_t   word_count(const char *str)
 {
-    int bufsize = TOKEN_BUFFER_SIZE;
-    int position = 0;
-    char **tokens = malloc(bufsize * sizeof(char *));
-    char *token = malloc(TOKEN_BUFFER_SIZE * sizeof(char));
-    int token_pos = 0;
+    size_t  i;
+    size_t  w_count;
+    
+    i = 0;
+    w_count = 0;
+    while (str[i])
+    {
+        while (str[i] && ft_isspace(str[i]))
+            i++;
+        if (str[i] && !ft_special_char(str[i]))
+        {
+            w_count++;
+            while (str[i] && !ft_special_char(str[i]))
+                i++;
+        }
+        while (str[i] && ft_special_char(str[i]))
+            i++;
+    }
+    return (w_count);
+}
 
-    if (!tokens || !token)
+char	**ft_toksplit(const char *str)
+{
+    size_t  i;
+    size_t  j;
+    size_t  w_len = 0;
+    int     k;
+    char    **out;
+
+    out = malloc(sizeof(char *) * (w_len + 1));
+    if (!out)
+        return (NULL);
+    i = 0;
+    k = 0;
+    w_len = word_count(str);
+    while (str[i])
     {
-        fprintf(stderr, "minishell: allocation error\n");
-        exit(EXIT_FAILURE);
-    }
-    for (int i = 0; input[i] != '\0'; i++)
-    {
-        if (ft_isspace(input[i]))
+        while (str[i] && ft_isspace(str[i]))
+            i++;
+        j = i;
+        while (str[i] && !ft_special_char(str[i]))
+            i++;
+        if (i > j)
         {
-            if (token_pos > 0)
-            {
-                token[token_pos] = '\0';
-                tokens[position++] = ft_strdup(token);
-                token_pos = 0;
-            }
+            out[k] = malloc(sizeof(char) * ((i - j) + 1));
+            if (!out)
+                return (NULL);
+            ft_strncpy(out[k++], &str[j], i - j);
         }
-        else if (is_special_char(input[i]))
-        {
-            if (token_pos > 0)
-            {
-                token[token_pos] = '\0';
-                tokens[position++] = ft_strdup(token);
-                token_pos = 0;
-            }
-            tokens[position++] = ft_strndup(&input[i], 1);
-        }
-        else
-            token[token_pos++] = input[i];  
-        if (position >= bufsize)
-        {
-            bufsize += TOKEN_BUFFER_SIZE;
-            tokens = realloc(tokens, bufsize * sizeof(char *));
-            if (!tokens)
-            {
-                fprintf(stderr, "minishell: allocation error\n");
-                exit(EXIT_FAILURE);
-            }
-        }
+        while (str[i] && ft_special_char(str[i]))
+            i++;
     }
-    if (token_pos > 0)
-    {
-        token[token_pos] = '\0';
-        tokens[position++] = ft_strdup(token);
-    }
-    tokens[position] = NULL;
-    free(token);
-    return (tokens);
+    out[k] = NULL;
+    return (out);
 }
 
