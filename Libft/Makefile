@@ -6,7 +6,7 @@
 #    By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 09:55:22 by hrasolof          #+#    #+#              #
-#    Updated: 2024/09/26 18:50:05 by hrasolof         ###   ########.fr        #
+#    Updated: 2024/09/27 18:42:10 by hrasolof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ bonus: $(OBJS)
 	ar -rc $(NAME) $(OBJS)
 
 %.o: %.c
-		cc $(FLAGS) -c $< -o $@
+		@cc $(FLAGS) -c $< -o $@
 
 clean:
 		rm -f $(OBJS)
