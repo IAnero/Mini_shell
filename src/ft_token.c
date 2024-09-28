@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:14:53 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/27 11:35:25 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/28 14:48:33 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_isspace(char c)
 
 int ft_special_char(char c)
 {
-    return (c == '>' || c == '<' || c == '|' || c == ' ' || c == '\t');
+    return (c == '>' || c == '<' || c == '|' || c == ' ' || c == '\t' || c == ':');
 }
 
 static size_t   word_count(const char *str)
