@@ -6,7 +6,7 @@
 #    By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 09:55:22 by hrasolof          #+#    #+#              #
-#    Updated: 2024/09/27 18:42:10 by hrasolof         ###   ########.fr        #
+#    Updated: 2024/09/28 11:03:11 by hrasolof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,18 +60,18 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rc $(NAME) $(OBJS)
+	@ar -rc $(NAME) $(OBJS)
 
 bonus: $(OBJS)
-	ar -rc $(NAME) $(OBJS)
+	@ar -rc $(NAME) $(OBJS)
 
 %.o: %.c
 		@cc $(FLAGS) -c $< -o $@
 
 clean:
-		rm -f $(OBJS)
+		@rm -f $(OBJS)
 fclean: clean
-		rm -f $(NAME)
+		@rm -f $(NAME)
 re: fclean all
 
 .PHONY : all clean fclean all
