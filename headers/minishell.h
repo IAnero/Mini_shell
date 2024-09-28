@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:39:03 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/27 11:29:54 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/28 11:53:32 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <ctype.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include "../Libft/libft.h"
 
 #define NC "\e[0m"
