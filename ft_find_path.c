@@ -29,28 +29,31 @@ int is_executable(const char *path)
 
 char *find_program_in_path(const char *program)
 {
-    char *path_env = getenv("PATH");
-    char full_path[1024];
-    if (!path_env)
+    t_dir dir_data;
+
+    dir_data.path_env = getenv("PATH");
+    if (!dir_data.path_env)
     {
         printf("PATH environment variable not found\n");
         return (NULL);
     }
-    char *path_dup = ft_strdup(path_env);
-    char *dir = strtok(path_dup, ":");
-    while (dir != NULL)
+    dir_data.dirs = ft_split(dir_data.path_env, ':');
+    if (!dir_data.dirs)
+        return (NULL);
+    int i = 0;
+    while (dir_data.dirs[i] != NULL)
     {
-        snprintf(full_path, sizeof(full_path), "%s/%s", dir, program);
-        if (is_executable(full_path))
-        {
-            free(path_dup);
-            return ft_strdup(full_path);
-        }
-        dir = strtok(NULL, ":");
+        dir_data.dir = dir_data.dirs[i];
+        dir_data.dir_with_slash = ft_strjoin(dir_data.dir, "/");
+        dir_data.full_path = ft_strjoin(dir_data.dir_with_slash, program);
+        if (is_executable(dir_data.full_path))
+            return (dir_data.full_path);
+        free(dir_data.full_path);
+        i++;
     }
-    free(path_dup);
     return (NULL);
 }
+
 
 int main(int argc, char *argv[])
 {
@@ -59,7 +62,6 @@ int main(int argc, char *argv[])
         printf("Usage: %s <program_name>\n", argv[0]);
         return (1);
     }
-
     char *program_path = find_program_in_path(argv[1]);
     if (program_path)
     {

@@ -33,6 +33,15 @@
 
 #define TOKEN_BUFFER_SIZE 64
 
+typedef struct s_dir
+{
+    char    *path_env;
+    char    *dir;
+    char    *dir_with_slash;
+    char    *full_path;
+    char    **dirs;
+}   t_dir;
+
 int ft_cd(char **av);
 int ft_echo(char **av);
 int ft_pwd();
