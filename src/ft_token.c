@@ -76,7 +76,7 @@ char	**ft_toksplit(const char *str)
         while (str[i] && ft_special_char(str[i]))
             i++;
     }
-    out[k] = NULL;
+    // out[k] = NULL;
     return (out);
 }
 

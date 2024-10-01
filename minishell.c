@@ -16,7 +16,7 @@ int main(void)
 {
     char    *input;
     char    **args = NULL;
-    int     i = 0;
+    // int     i = 0;
     while (1)
     {
         input = readline("\033[1mMinishell \U0001F60A $\033[0m ");
@@ -29,9 +29,9 @@ int main(void)
         //     execute_commad(args);
         built_in_command(args);
         free(input);
-        while (args[i])
-            free (args[i++]);
-        free (args);            
+        // while (args[i])
+        //     free (args[i++]);
+        // free (args);            
     }
 }
 

@@ -36,7 +36,7 @@ char *find_program_in_path(const char *program)
         printf("PATH environment variable not found\n");
         return (NULL);
     }
-    char *path_dup = strdup(path_env);
+    char *path_dup = ft_strdup(path_env);
     char *dir = strtok(path_dup, ":");
     while (dir != NULL)
     {
