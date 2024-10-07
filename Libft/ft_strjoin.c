@@ -33,6 +33,6 @@ char	*ft_strjoin(char *dest, const char *src)
 		return (NULL);
 	ft_strcpy(result, dest);
 	ft_strcat(result, src);
-	free(dest);
+	// free(dest);
 	return (result);
 }

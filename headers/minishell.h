@@ -49,6 +49,8 @@ int ft_exit();
 // char **tokenize_input(char *input);
 int built_in_command(char **av);
 char	**ft_toksplit(const char *str);
+char *find_program_in_path(const char *program);
+int execute_command(char **args);
 
 
 #endif

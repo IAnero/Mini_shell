@@ -20,7 +20,9 @@ RM = rm -rf
 SRCS = 	minishell.c \
 		src/simple_command.c \
 		src/command_handling.c \
-		src/ft_token.c
+		src/ft_token.c \
+		src/execute_command.c \
+		ft_find_path.c
 
 LIBFT_PATH = Libft
 LIBFT = $(LIBFT_PATH)/libft.a

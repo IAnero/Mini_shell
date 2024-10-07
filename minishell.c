@@ -25,9 +25,9 @@ int main(void)
         if (*input)
             add_history(input); 
         args = ft_toksplit(input);
-        // if (built_in_command(args) == 0)
-        //     execute_commad(args);
-        built_in_command(args);
+        if (built_in_command(args) == 0)
+          execute_command(args);
+        // built_in_command(args);
         free(input);
         // while (args[i])
         //     free (args[i++]);
