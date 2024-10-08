@@ -27,41 +27,6 @@ int ft_cd(char **av)
     return (0);
 }
 
-int ft_echo(char **av)
-{
-    int i;
-    int newline;
-
-    i = 1;
-    newline = 1;
-    if (av[1] && ft_strcmp(av[1], "-n") == 0)
-    {
-        newline = 0;
-        i = 2;
-    }
-    while (av[i])
-    {
-        printf("%s", av[i]);
-        if (av[i + 1] == NULL)
-            printf(" ");
-        i++;
-    }
-    if (newline)
-        printf("\n");
-    return (0);
-}
-
-int ft_pwd()
-{
-    char cwd[1024];
-
-    if (getcwd(cwd, sizeof(cwd)) != NULL)
-        printf("%s\n", cwd);
-    else
-        perror("minishell");
-    return (0);
-}
-
 int ft_exit()
 {
     printf("exit\n");

@@ -6,19 +6,35 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:21:25 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/10/07 17:46:29 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/10/08 17:40:16 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/minishell.h"
 
-int   execute_command(char **args)
+int execute_command(char **args)
 {
-    char *argv[] = {args[1], NULL};
+    pid_t pid;
+    int status;
     char *envp[] = { NULL };
-    if (ft_strcmp(args[0], "ls") == 0)
-        return (execve(find_program_in_path(args[0]), argv, envp));
-    return (0);
+
+    pid = fork();
+    if (pid == 0)
+    {
+        if (execve(find_program_in_path(args[0]), args, envp) == -1)
+        {
+            perror("minishell");
+            exit(EXIT_FAILURE);
+        }
+    }
+    else if (pid < 0)
+    {
+        perror("Fork failed");
+        return -1;
+    }
+    else
+        waitpid(pid, &status, 0);
+    return 0;
 }
 
 

@@ -18,10 +18,6 @@ int built_in_command(char **av)
         return (1);
     if (ft_strcmp(av[0], "cd") == 0)
         return (ft_cd(av));
-    else if (ft_strcmp(av[0], "echo") == 0)
-        return (ft_echo(av));
-    else if (ft_strcmp(av[0], "pwd") == 0)
-        return (ft_pwd(av));
     else if (ft_strcmp(av[0], "exit") == 0)
         return (ft_exit(av));
     return (0);

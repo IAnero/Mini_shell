@@ -22,6 +22,7 @@
 #include <readline/history.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include "../Libft/libft.h"
 
 #define NC "\e[0m"
@@ -43,10 +44,7 @@ typedef struct s_dir
 }   t_dir;
 
 int ft_cd(char **av);
-int ft_echo(char **av);
-int ft_pwd();
 int ft_exit();
-// char **tokenize_input(char *input);
 int built_in_command(char **av);
 char	**ft_toksplit(const char *str);
 char *find_program_in_path(const char *program);
