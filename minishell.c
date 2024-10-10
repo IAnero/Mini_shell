@@ -12,11 +12,15 @@
 
 #include "headers/minishell.h"
 
-int main(void)
+int main(int ac, char *av[], char **env)
 {
+    (void)ac;
+    (void)av;
     char    *input;
     char    **args = NULL;
-    // int     i = 0;
+    int     i;
+
+    i = 0;
     while (1)
     {
         input = readline("\033[1mMinishell \U0001F60A $\033[0m ");
@@ -26,12 +30,11 @@ int main(void)
             add_history(input); 
         args = ft_toksplit(input);
         if (built_in_command(args) == 0)
-          execute_command(args);
-        // built_in_command(args);
+          execute_command(args, env);
         free(input);
-        // while (args[i])
-        //     free (args[i++]);
-        // free (args);            
+        while (args[i])
+            free (args[i++]);
+        free (args);            
     }
 }
 

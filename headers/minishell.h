@@ -48,7 +48,7 @@ int ft_exit();
 int built_in_command(char **av);
 char	**ft_toksplit(const char *str);
 char *find_program_in_path(const char *program);
-int execute_command(char **args);
+int execute_command(char **args, char **env);
 
 
 #endif

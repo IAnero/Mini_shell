@@ -22,7 +22,7 @@ SRCS = 	minishell.c \
 		src/command_handling.c \
 		src/ft_token.c \
 		src/execute_command.c \
-		ft_find_path.c
+		src/ft_find_path.c
 
 LIBFT_PATH = Libft
 LIBFT = $(LIBFT_PATH)/libft.a
@@ -36,7 +36,7 @@ define compile_message
 	@$(eval CURRENT_OBJ_COUNT=$(shell echo $$(($(CURRENT_OBJ_COUNT) + 1))))
 	@echo -ne "\rCompiling: " \
 	"[$$(( $(CURRENT_OBJ_COUNT) * 100 / $(TOTAL_SRCS) ))% completed]\033[0m"
-	@sleep 1
+	@sleep 0.05
 endef
 
 # Rule for compiling .o files and updating progress

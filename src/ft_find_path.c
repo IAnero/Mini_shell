@@ -10,13 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/minishell.h"
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/stat.h>
+#include "../headers/minishell.h"
 
 int is_executable(const char *path)
 {

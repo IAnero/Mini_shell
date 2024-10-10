@@ -49,34 +49,34 @@ char	**ft_toksplit(const char *str)
 {
     size_t  i;
     size_t  j;
-    size_t  w_len = 0;
+    size_t  w_len;
     int     k;
     char    **out;
 
+    w_len = word_count(str);
     out = malloc(sizeof(char *) * (w_len + 1));
     if (!out)
         return (NULL);
     i = 0;
     k = 0;
-    w_len = word_count(str);
     while (str[i])
     {
-        while (str[i] && ft_isspace(str[i]))
+        while (str[i] && (ft_isspace(str[i]) || ft_special_char(str[i])))
             i++;
-        j = i;
-        while (str[i] && !ft_special_char(str[i]))
-            i++;
-        if (i > j)
+        if (str[i] && !ft_isspace(str[i]) && !ft_special_char(str[i]))
         {
-            out[k] = malloc(sizeof(char) * ((i - j) + 1));
-            if (!out)
+            j = i;
+            while (str[i] && !ft_isspace(str[i]) && !ft_special_char(str[i]))
+                i++;
+            out[k] = malloc(sizeof(char) * (i - j + 1));
+            if (!out[k])
                 return (NULL);
-            ft_strncpy(out[k++], &str[j], i - j);
+            ft_strncpy(out[k], &str[j], i - j);
+            out[k][i - j] = '\0';
+            k++;
         }
-        while (str[i] && ft_special_char(str[i]))
-            i++;
     }
-    // out[k] = NULL;
+    out[k] = NULL;
     return (out);
 }
 
