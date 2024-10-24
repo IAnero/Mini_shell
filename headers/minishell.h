@@ -34,6 +34,16 @@
 
 #define TOKEN_BUFFER_SIZE 64
 
+typedef struct  s_datatok
+{
+    int  index;
+    int  index2;
+    int  w_len;
+    int     tab_i;
+    char    **out;
+}   t_datatok;
+
+
 typedef struct s_dir
 {
     char    *path_env;
@@ -42,13 +52,29 @@ typedef struct s_dir
     char    *full_path;
     char    **dirs;
 }   t_dir;
+typedef struct s_env
+{
+    char *str;
+    struct s_env *next;
+}   t_env;
 
 int ft_cd(char **av);
 int ft_exit();
-int built_in_command(char **av);
+int ft_export(char **av, t_env **head);
+int ft_isspace(char c);
+int ft_special_char(char c);
+int built_in_command(char **av, t_env *head);
+int execute_command(char **args, char **env);
 char	**ft_toksplit(const char *str);
 char *find_program_in_path(const char *program);
-int execute_command(char **args, char **env);
+void free_tab(char **str);
+void free_tab_struct(t_datatok *data);
+t_env *create_node(const char *string);
+t_env *create_linked_list(char **str);
+int print_env(t_env *head);
+void add_node_end(t_env **head, const char *string);
+int unset_env(t_env *head, const char *str_to_remove);
+
 
 
 #endif
