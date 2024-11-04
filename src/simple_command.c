@@ -56,49 +56,47 @@ int print_env(t_env *head)
     return (1);
 }
 
+/*need the try by ASCII and the replace function (need to make unset work first) */
+
 int ft_export(char **av, t_env **head)
 {
     if (av[1])
     {
         add_node_end(head, av[1]);
-        print_env(*head);
+        // print_env(*head);
     }
     else
-        print_env(*head);
+        print_env(*head); // I still need to find a way to show it in ASCII way.
     return (1);
 }
 
-int unset_env(t_env *head, const char *str_to_remove)
+/*need the try by ASCII and the replace function (need to make unset work first) */
+
+
+/* Still need to be fixed so dont touch yet */
+/*supposed to remove but is not*/
+
+int unset_env(t_env **head, char *str_to_remove)
 {
     t_env *current = NULL;
-    t_env *previous = NULL;
 
-    current = head;
+    current = *head;
 
     // Traverse the list to find the node to remove
     while (current != NULL)
     {
-        if (strcmp(current->str, str_to_remove) == 0)
+        if (ft_search_until_egal(str_to_remove, current->str) == 0)
         {
-            // Node found, remove it
-            if (previous == NULL)
-            {
-                // Node to remove is the head
-                head = current->next;
-            } 
-            else
-            {
-                // Node to remove is not the head
-                previous->next = current->next;
-            }
-            print_env(head);
-            free(current->str); // Free the memory for the string
-            free(current);      // Free the node itself
+            *head = current->next;
+            print_env(*head);
             return (1);            // Exit the function after removing the node
         }
-        previous = current;
-        current = current->next;
+        else
+            current = *head;
+    current = current->next;
     }
     return (1);
 }
+
+/* Still need to be fixed so dont touch yet */
 
