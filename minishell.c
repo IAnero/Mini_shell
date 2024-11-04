@@ -20,6 +20,7 @@ int main(int ac, char *av[], char **env)
     char    **args = NULL;
     t_env   *envp = NULL;
     (void)envp;
+    envp = create_linked_list(env);
 
     while (1)
     {
@@ -28,7 +29,6 @@ int main(int ac, char *av[], char **env)
             break ;
         if (*input)
             add_history(input);
-        envp = create_linked_list(env);
         args = ft_toksplit(input);
         if (!built_in_command(args, envp))
             execute_command(args, env);

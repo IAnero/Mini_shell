@@ -6,7 +6,7 @@
 /*   By: herrakot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:19:54 by herrakot          #+#    #+#             */
-/*   Updated: 2024/10/24 17:12:44 by herrakot         ###   ########.fr       */
+/*   Updated: 2024/11/04 12:28:53 by herrakot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,22 @@ t_env *create_node(const char *string)
 
 void add_node_end(t_env **head, const char *str)
 {
-    t_env *new_node = malloc(sizeof(t_env));
+    t_env *new_node = NULL;
+    t_env *current  = NULL;
+
+    new_node = malloc(sizeof(t_env));
     new_node->str = strdup(str);
     new_node->next = NULL;
 
-    if (*head == NULL) {
+    if (*head == NULL) 
+    {
         *head = new_node;
         return;
     }
 
-    t_env *current = *head;
-    while (current->next) {
+    current  = *head;
+    while (current->next)
         current = current->next;
-    }
     current->next = new_node;
 }
 

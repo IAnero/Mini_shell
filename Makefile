@@ -23,7 +23,9 @@ SRCS = 	minishell.c \
 		src/ft_token.c \
 		src/execute_command.c \
 		src/ft_find_path.c \
-		src/create_env.c
+		src/create_env.c \
+		src/ft_free.c \
+		src/ft_utils.c \
 
 LIBFT_PATH = Libft
 LIBFT = $(LIBFT_PATH)/libft.a

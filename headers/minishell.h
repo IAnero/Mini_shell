@@ -73,7 +73,11 @@ t_env *create_node(const char *string);
 t_env *create_linked_list(char **str);
 int print_env(t_env *head);
 void add_node_end(t_env **head, const char *string);
-int unset_env(t_env *head, const char *str_to_remove);
+int unset_env(t_env **head, char *str_to_remove);
+void free_tab(char **str);
+void free_tab_struct(t_datatok *data);
+int     ft_search_until_egal(char *str, char *str_tocompare);
+
 
 
 

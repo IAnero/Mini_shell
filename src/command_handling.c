@@ -25,7 +25,7 @@ int built_in_command(char **av,t_env *head)
     else if (ft_strcmp(av[0], "env") == 0)
         return (print_env(head));
     else if (ft_strcmp(av[0], "unset") == 0)
-        return (unset_env(head, av[1]));
+        return (unset_env(&head, av[1]));
     return (0);
 }
 
